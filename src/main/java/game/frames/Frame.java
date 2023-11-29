@@ -1,8 +1,14 @@
+package game.frames;
+
+import database.Database;
+import database.persistance.WordPersistence;
+import game.scanword.Scanword;
+
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Frame extends JFrame {
+    WordPersistence words = new WordPersistence();
     JButton add = new JButton("Добавить");
     JButton play = new JButton("Играть");
     JTextArea description = new JTextArea();
@@ -11,25 +17,27 @@ public class Frame extends JFrame {
     JLabel word_label = new JLabel("Введите слово");
 
 
-    Words words = new Words();
+//    Words words = new Words();
 
     private final ActionListener playGame = e -> {
         this.dispose();
         new Scanword(words);
     };
     private final ActionListener addWord = e -> {
-        words.addWord(word.getText(), description.getText());
-        words.print();
+        words.putWord(word.getText(), description.getText());
+//        words.print();
     };
 
 
-    Frame() {
-        show_window();
+    public Frame() {
+        Database db = Database.getInstance();
+        db.clear();
+
         play.addActionListener(playGame);
         add.addActionListener(addWord);
     }
 
-    private void show_window() {
+    public void show_window() {
         add.setBounds(300, 700, 100, 50);
         word.setBounds(100,230, 300, 20);
         word_label.setBounds(150,170,150, 100);

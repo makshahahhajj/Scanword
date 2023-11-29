@@ -1,0 +1,22 @@
+package database.domain;
+
+public class Word {
+    private String word;
+    private String definition;
+
+    public void guess() {
+
+    }
+    public Word(String word, String definition) {
+        this.word = word;
+        this.definition = definition;
+    }
+
+    public String getWord() {
+        return word;
+    }
+
+    public String getDef() {
+        return definition;
+    }
+}

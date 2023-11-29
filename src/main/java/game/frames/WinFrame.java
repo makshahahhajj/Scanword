@@ -1,3 +1,8 @@
+package game.frames;
+
+import database.Database;
+import game.frames.Frame;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -16,7 +21,8 @@ public class WinFrame extends JFrame {
        new Frame();
     };
 
-    WinFrame() {
+    public WinFrame() {
+
         this.setSize(400, 400);
         this.setVisible(true);
 
