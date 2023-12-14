@@ -10,7 +10,7 @@ import java.util.Map;
 public class WordPersistence {
 
     private final Database database = Database.getInstance();
-    private static final String TABLE_NAME = "words";
+    private static final String ID = "id";
     private static final String WORD_NAME = "word";
     private static final String DEF_NAME = "definition";
 
@@ -26,6 +26,7 @@ public class WordPersistence {
 
     protected Word convertWord(Map<String, String> fromBd) {
         return new Word(
+                Integer.parseInt(fromBd.get(ID)),
                 fromBd.get(WORD_NAME),
                 fromBd.get(DEF_NAME)
         );
@@ -33,6 +34,7 @@ public class WordPersistence {
 
     public List<Word> getAll() {
         List<Map<String, String>> fromDB = database.selectAll(
+                ID,
                 WORD_NAME,
                 DEF_NAME
         );
@@ -41,4 +43,9 @@ public class WordPersistence {
                 .map(this::convertWord)
                 .toList();
     }
+
+    public void deleteAll() {
+        database.clear();
+    }
+
 }

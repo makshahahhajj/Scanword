@@ -44,6 +44,7 @@ public class Database {
     private void createTable() {
         String query = """
                 create table if not exists scanword.words(
+                    id serial primary key,
                     word text,
                     definition text
                 )
@@ -95,7 +96,7 @@ public class Database {
 
     public void clear() {
         String query = """
-                delete from scanword.words
+                TRUNCATE scanword.words RESTART IDENTITY
                 """;
         execute(query);
     }
