@@ -1,6 +1,6 @@
 package game.frames;
 
-import database.Database;
+import consts.Consts;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,10 +32,15 @@ public class EndFrame extends JFrame {
 
         setStartConstraint();
 
-        message.setFont(new Font("Consolas", Font.PLAIN, 25));
+        message.setFont(new Font("Consolas", Font.PLAIN, Consts.END_FRAME_FONTSIZE));
         this.add(message, constraint);
 
-        constraint.insets = new Insets(50,50, 0, 50);
+        constraint.insets = new Insets(
+                Consts.END_FRAME_INSETS_TOP,
+                Consts.END_FRAME_INSETS_LEFT,
+                Consts.END_FRAME_INSETS_BOTTOM,
+                Consts.END_FRAME_INSETS_RIGHT
+        );
 
         updateConstraint(0,1, 1 ,1);
         this.add(close, constraint);
@@ -49,14 +54,14 @@ public class EndFrame extends JFrame {
     }
 
     public void show_window() {
-        this.setSize(400, 400);
+        this.setSize(Consts.END_FRAME_WINDOWWIDTH, Consts.END_FRAME_WINDOWHEIGHT);
         this.setResizable(false);
         this.setVisible(true);
     }
 
     private void setStartConstraint() {
-        constraint.gridheight = 1;
-        constraint.gridwidth = 2;
+        constraint.gridheight = Consts.END_FRAME_GRIDHEIGHT;
+        constraint.gridwidth = Consts.END_FRAME_GRIDWIDTH;
     }
 
     private void updateConstraint(int gridx, int gridy, int gridHeight, int gridWidth) {

@@ -1,7 +1,7 @@
 package game.frames;
 
+import consts.Consts;
 import database.persistance.WordPersistence;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -52,22 +52,52 @@ public class StartFrame extends JFrame {
     }
 
     private void setElementsParams() {
-        add.setBounds(100, 300, 100, 50);
-        word.setBounds(100,230, 300, 40);
-        word_label.setBounds(150,170,150, 100);
-        desc_label.setBounds(150,40,150,100);
-        play.setBounds(300,300,100,50);
-        description.setBounds(100,100, 300, 100);
+        add.setBounds(Consts.ADD_X, Consts.ADD_Y, Consts.ADD_WIDTH, Consts.ADD_HEIGHT);
 
-        word.setFont(new Font("Consolas", Font.PLAIN, 16));
-        description.setFont(new Font("Consolas", Font.PLAIN, 18));
+        word.setBounds(
+                Consts.WORD_FIELD_X,
+                Consts.WORD_FIELD_Y,
+                Consts.WORD_FIELD_WIDTH,
+                Consts.WORD_FIELD_HEIGHT
+            );
+
+        word_label.setBounds(
+                Consts.WORD_LABEL_X,
+                Consts.WORD_LABEL_Y,
+                Consts.WORD_LABEL_WIDTH,
+                Consts.WORD_LABEL_HEIGHT
+            );
+
+        desc_label.setBounds(
+                Consts.DESC_LABEL_X,
+                Consts.DESC_LABEL_Y,
+                Consts.DESC_LABEL_WIDTH,
+                Consts.DESC_LABEL_HEIGHT
+            );
+
+        play.setBounds(
+                Consts.PLAY_BUTTON_X,
+                Consts.PLAY_BUTTON_Y,
+                Consts.PLAY_BUTTON_WIDTH,
+                Consts.PLAY_BUTTON_HEIGHT
+            );
+
+        description.setBounds(
+                Consts.DESC_FIELD_X,
+                Consts.DESC_FIELD_Y,
+                Consts.DESC_FIELD_WIDTH,
+                Consts.DESC_FIELD_HEIGHT
+            );
+
+        word.setFont(new Font("Consolas", Font.PLAIN, Consts.WORD_FIELD_FONT));
+        description.setFont(new Font("Consolas", Font.PLAIN, Consts.DESC_FIELD_FONT));
 
         description.setLineWrap(true);
     }
 
     private void setFrameParams() {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setSize(500,400);
+        this.setSize(Consts.STARTFRAME_WIDTH,Consts.STARTFRAME_HEIGHT);
         this.setResizable(false);
         this.setVisible(true);
         this.setLayout(null);
