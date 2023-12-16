@@ -130,6 +130,7 @@ public class ScanwordFrame extends JFrame {
 
                 panel.add(field, constraint);
             }
+
             updateConstraint(Consts.SECOND_COLUMN, i + 1);
             this.add(panel, constraint);
 
@@ -139,9 +140,11 @@ public class ScanwordFrame extends JFrame {
             panels.add(panel);
 
         }
+
         int last_row = size + 1;
 
         updateConstraint(Consts.FIRST_COLUMN, last_row);
+
         clear.setPreferredSize(new Dimension(
                 Consts.SCANWORDFRAME_BUTTON_WIDTH,
                 Consts.SCANWORDFRAME_BUTTON_HEIGHT
@@ -206,7 +209,7 @@ public class ScanwordFrame extends JFrame {
                     super.insertString(offs, str, a);
                 }
             };
-        }
+    }
     private JTextField getFormattedField (int i, int j) {
 
         JTextField field = new JTextField();
@@ -226,7 +229,7 @@ public class ScanwordFrame extends JFrame {
 
 
         return field;
-        }
+    }
     private JPanel getPanel (int i) {
         return panels.get(i);
     }
