@@ -47,10 +47,10 @@ public class ScanwordFrame extends JFrame {
         } else {
             for (int i = 0; i < panels.size(); ++i) {
                 if (scanword.checkWord(getPanel(i))) {
-                    toColor(i, 65280);
+                    toColor(i, Consts.COLOR_GREEN);
                     scanword.guess(getPanel(i).getName(), true);
                 } else {
-                    toColor(i, 16711680);
+                    toColor(i, Consts.COLOR_RED);
                     scanword.guess(getPanel(i).getName(), false);
 
                 }

@@ -1,6 +1,8 @@
 package consts;
 
 public interface Consts {
+    int COLOR_RED = 16711680;
+    int COLOR_GREEN = 65280;
     int SCANWORDFRAME_GRIDHEIGHT = 1;
     int SCANWORDFRAME_GRIDHWIDTH = 1;
     int SCANWORDFRAME_FIELDS_MAXLENGTH = 1;
