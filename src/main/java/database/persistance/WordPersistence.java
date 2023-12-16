@@ -15,13 +15,16 @@ public class WordPersistence {
     private static final String DEF_NAME = "definition";
 
     public void putWord(String word, String definition) {
-        String sql = """
-        insert into scanword.words
-        (word, definition)
-        values
-        ('%s', '%s')
-        """;
-        database.execute(String.format(sql, word, definition));
+        List<Word> words = this.getAll();
+        if (words.isEmpty()) {
+            database.insertWord(word, definition);
+        } else {
+            for(Word w: words) {
+                if(!(w.getWord().equals(word) && w.getDef().equals(definition))) {
+                    database.insertWord(word, definition);
+                }
+            }
+        }
     }
 
     protected Word convertWord(Map<String, String> fromBd) {
@@ -47,5 +50,7 @@ public class WordPersistence {
     public void deleteAll() {
         database.clear();
     }
+
+
 
 }

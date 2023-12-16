@@ -13,7 +13,7 @@ public class WordPersistance_DeleteAll_Test {
 
     @Test
     @DisplayName("deleteAll method is passed")
-    public void deleteAllTes() {
+    public void deleteAllTest() {
         wordPersistence.putWord("Alex", "love football");
         wordPersistence.putWord("Max", "love hockey");
 

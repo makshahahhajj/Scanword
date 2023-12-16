@@ -53,6 +53,16 @@ public class Database {
         execute(query);
     }
 
+    public void insertWord(String word, String definition) {
+        String sql = """
+        insert into scanword.words
+        (word, definition)
+        values
+        ('%s', '%s')
+        """;
+        execute(String.format(sql, word, definition));
+    }
+
     public List<Map<String, String>> selectAll(String... columnNames) {
         List<Map<String, String>> result = new ArrayList<>();
 

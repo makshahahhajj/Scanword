@@ -1,6 +1,6 @@
 package game.frames;
 
-import database.persistance.WordPersistence;
+import database.Database;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,7 +25,6 @@ public class EndFrame extends JFrame {
     };
 
     public EndFrame(String text) {
-
 
         message.setText(text);
 

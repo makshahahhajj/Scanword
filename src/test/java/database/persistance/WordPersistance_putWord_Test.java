@@ -13,7 +13,7 @@ public class WordPersistance_putWord_Test {
 
     @Test
     @DisplayName("putWord method is passed")
-    public void pusTes() {
+    public void puеTest() {
         wordPersistence.deleteAll();
 
         wordPersistence.putWord("Alex", "love football");

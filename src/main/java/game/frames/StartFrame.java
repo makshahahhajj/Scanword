@@ -8,19 +8,19 @@ import java.awt.event.ActionListener;
 
 public class StartFrame extends JFrame {
     private boolean added = false;
-    WordPersistence words_to_db = new WordPersistence();
-    JButton add = new JButton("Добавить");
-    JButton play = new JButton("Играть");
-    JTextArea description = new JTextArea();
-    JTextField word = new JTextField();
-    JLabel desc_label = new JLabel("Введите описание");
-    JLabel word_label = new JLabel("Введите слово");
+    private WordPersistence dbWords = new WordPersistence();
+    private JButton add = new JButton("Добавить");
+    private JButton play = new JButton("Играть");
+    private JTextArea description = new JTextArea();
+    private JTextField word = new JTextField();
+    private JLabel desc_label = new JLabel("Введите описание");
+    private JLabel word_label = new JLabel("Введите слово");
 
     private final ActionListener playGame = e -> {
         if (added) {
             this.dispose();
 
-            ScanwordFrame scanwordFrame = new ScanwordFrame(words_to_db);
+            ScanwordFrame scanwordFrame = new ScanwordFrame(dbWords);
             scanwordFrame.showScanword();
         }
     };
@@ -30,14 +30,14 @@ public class StartFrame extends JFrame {
 
         if (word_text.matches("\\S+") && !desc_text.matches("(\\s)+|(^$)")) {
             added = true;
-            words_to_db.putWord(word.getText(), description.getText());
+            dbWords.putWord(word.getText(), description.getText());
         }
 
     };
 
 
     public StartFrame() {
-        words_to_db.deleteAll();
+        dbWords.deleteAll();
 
         play.addActionListener(playGame);
         add.addActionListener(addWord);
