@@ -142,13 +142,23 @@ public class ScanwordFrame extends JFrame {
         int last_row = size + 1;
 
         updateConstraint(Consts.FIRST_COLUMN, last_row);
-        clear.setPreferredSize(new Dimension(Consts.SCANWORDFRAME_BUTTON_WIDTH, Consts.SCANWORDFRAME_BUTTON_HEIGHT));
+        clear.setPreferredSize(new Dimension(
+                Consts.SCANWORDFRAME_BUTTON_WIDTH,
+                Consts.SCANWORDFRAME_BUTTON_HEIGHT
+            )
+        );
+
         clear.addActionListener(clearClick);
         this.add(clear, constraint);
 
         updateConstraint(Consts.THIRD_COLUMN, last_row);
 
-        check.setPreferredSize(new Dimension(Consts.SCANWORDFRAME_BUTTON_WIDTH, Consts.SCANWORDFRAME_BUTTON_HEIGHT));
+        check.setPreferredSize(new Dimension(
+                Consts.SCANWORDFRAME_BUTTON_WIDTH,
+                Consts.SCANWORDFRAME_BUTTON_HEIGHT
+            )
+        );
+
         check.addActionListener(checkClick);
         this.add(check, constraint);
     }
